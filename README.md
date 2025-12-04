@@ -9,14 +9,10 @@ This repository contains the R code for "Trends in second-line glucose-lowering 
 The study uses data from the UK Clinical Practice Research Datalink (CPRD) to:
 
 -   Describe contemporary population-level second-line prescribing trends after metformin.
-
 -   Evaluate trends in short-term clinical outcomes following second-line treatment initiation including:
-
     -   12-month response outcomes: HbA1c, weight, treatment discontinuation
     -   Complicaiton outcomes with 12-months: severe diabetes-related complication, heart failure, kidney failure
-
 -   Evaluate the impact of the 2022 NICE guideline update recommending broader use of SGLT2 inhibitors.
-
 -   Assess whether trends differ in older adults with frailty, a high-risk population historically under-represented in clinical trials.
 
 The analysis includes 117,064 adults initiating second-line therapy after metformin between 2019–2024.
@@ -24,7 +20,7 @@ The analysis includes 117,064 adults initiating second-line therapy after metfor
 ## Key outcome definitions
 
 | Outcome                                                     | Definition                                                                                                                                      |
-|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------------|-------------------------------------------|
 | **HbA1c response**                                          | Change in HbA1c from baseline to 12 months (±3 months).                                                                                         |
 | **Weight change**                                           | Weight change from baseline to 12 months (±3 months).                                                                                           |
 | **Treatment discontinuation**                               | Stopping the initiated drug within 12 months, confirmed with 3-month follow-up.                                                                 |
@@ -39,19 +35,46 @@ Frailty is based on the electronic frailty index (eFI).\
 The three main analysis groups are:
 
 -   **Age ≤ 70 years**
-
 -   **Non-frail \> 70 years** (eFI: fit or mild)
-
 -   **Frail \> 70 years** (eFI: moderate or severe)
 
 ## Repository Structure
 
-This project is organised into: - Analysis scripts (in the main project folder): these use the functions to run the full analysis and produce all tables and figures for the paper. - Function scripts (in the functions/ folder): these contain all the reusable functions for building the cohort, creating outcomes, running models and making plots.
+This project is organised into:
 
-/ ├── 00_setup.R ├── 01_cohort_definition.R ├── 02_descriptive_trends.R ├── 03_response_outcomes.R ├── 04_complication_outcomes.R ├── 05_interrupted_time_series.R ├── 05_main_figures.R ├── 06_supplementary.R │ ├── functions/ │ ├── 00_utils.R │ ├── 01_cohort_definition.R │ ├── 02_descriptive_trends.R │ ├── 03_response_outcomes.R │ ├── 04_complication_outcomes.R │ ├── 05_interrupted_time_series_functions.R │ └── 06_plotting.R │ └── output/ ├── tables/ └── figures/ ├── main/ └── supplementary/ \## What each analysis script does
+-   **Analysis scripts** (in the main project folder): these use the functions to run the full analysis and produce all tables and figures for the paper.
+-   **Function scripts** (in the functions/ folder): these contain all the functions for building the cohort, creating outcomes, running models and making plots.
+
+``` text
+ ├── 00_setup.R
+ ├── 01_cohort_definition.R
+ ├── 02_descriptive_trends.R
+ ├── 03_response_outcomes.R
+ ├── 04_complication_outcomes.R
+ ├── 05_interrupted_time_series.R
+ ├── 05_main_figures.R
+ ├── 06_supplementary.R
+ │
+ ├── functions/
+ │   ├── 00_utils.R
+ │   ├── 01_cohort_definition.R
+ │   ├── 02_descriptive_trends.R
+ │   ├── 03_response_outcomes.R
+ │   ├── 04_complication_outcomes.R
+ │   ├── 05_interrupted_time_series_functions.R
+ │   └── 06_plotting.R
+ │
+ └── output/
+     ├── tables/
+     └── figures/
+         ├── main/
+         └── supplementary/
+```
+
+## What each analysis script does
 
 | Script                           | Description                                                                                                                                 |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------|------------------------------------------------|
 | **00_setup.R**                   | Loads required packages and sources all function files.                                                                                     |
 | **01_cohort_definition.R**       | Builds the second-line therapy cohort.                                                                                                      |
 | **02_descriptive_trends.R**      | Creates baseline descriptive tables and prescribing trends plot by year and frailty group.                                                  |
@@ -61,7 +84,7 @@ This project is organised into: - Analysis scripts (in the main project folder):
 | **05_main_figures.R**            | Combines individual plots into the final figures used in the manuscript.                                                                    |
 | **06_supplementary.R**           | Produces all supplementary tables and figures in the paper.                                                                                 |
 
-All outputs are saved to the output/ folder.
+If you want to reproduce the analysis, run each of the following analysis scripts in order. All outputs are saved to the output/ folder.
 
 ## Software Requirements
 
